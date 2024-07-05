@@ -1,8 +1,0 @@
-[
-{
-  "directory": "F:/C_C++ coding/NVim Training/build",
-  "command": "C:\\mingw64\\bin\\c++.exe  @CMakeFiles/App.dir/includes_CXX.rsp -g -Wall -Werror -std=c++17 -O2 -o CMakeFiles\\App.dir\\test.cpp.obj -c \"F:\\C_C++ coding\\NVim Training\\test.cpp\"",
-  "file": "F:/C_C++ coding/NVim Training/test.cpp",
-  "output": "CMakeFiles/App.dir/test.cpp.obj"
-}
-]

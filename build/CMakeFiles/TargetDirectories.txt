@@ -1,3 +1,0 @@
-F:/C_C++ coding/NVim Training/build/CMakeFiles/App.dir
-F:/C_C++ coding/NVim Training/build/CMakeFiles/edit_cache.dir
-F:/C_C++ coding/NVim Training/build/CMakeFiles/rebuild_cache.dir
