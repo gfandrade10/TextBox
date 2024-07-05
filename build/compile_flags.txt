@@ -1,0 +1,3 @@
+-xc++
+-I 
+C:/mingw64/include/c++/13.2.0
