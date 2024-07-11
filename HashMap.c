@@ -6,6 +6,7 @@
 #include <string.h>
 
 #define MEMBLOCK_ (30 * sizeof(char) + sizeof(int))
+#define INIT_SIZE_ 10
 
 typedef struct hashmap_ {
     void* data;
@@ -13,14 +14,11 @@ typedef struct hashmap_ {
     int elements;
 } HashMap;
 
-HashMap* CreateMap(int elements)
+HashMap* CreateMap() 
 {
-    if(!elements)
-        return NULL;
-
     HashMap* map = (HashMap*)malloc(sizeof(HashMap));
-    map->data = malloc(MEMBLOCK_ * elements);
-    map->capacity = elements;
+    map->data = malloc(MEMBLOCK_ * INIT_SIZE_);
+    map->capacity = INIT_SIZE_;
     map->elements = 0;
     return map;
 }
@@ -60,9 +58,11 @@ void AddElement(HashMap* map, char* tag)
 
     if(map->elements == map->capacity)
     {
-        printf("map is already full\n\n");
-        return;
+        map->data = realloc(map->data, map->capacity + INIT_SIZE_ * MEMBLOCK_);
+        if(!map->data)
+            return;
     }
+
     strncpy((char*)map->data + map->elements * MEMBLOCK_, tag, MEMBLOCK_ - sizeof(int) - 1);
     *(int*)((char*)map->data + map->elements * MEMBLOCK_ + MEMBLOCK_ - sizeof(int)) = 1;
     map->elements++;
@@ -95,13 +95,13 @@ void PrintMap(HashMap* Map)
 
 int main()
 {
-    int elem = 10;
-    HashMap* MyMap = CreateMap(elem);
+    HashMap* MyMap = CreateMap();
     InitializeMap(MyMap);
     AddElement(MyMap, (char*)"Guiiiiii");
     AddElement(MyMap, (char*)"Guiiiiii");
     AddElement(MyMap, (char*)"Pit");
     AddElement(MyMap, (char*)"Bela");
+    AddElement(MyMap, (char*)"Dulcinha");
     int val = GetHashCount(MyMap, (char*)"Pit");
     printf("%d\n", val);
     PrintMap(MyMap);
