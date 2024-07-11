@@ -36,6 +36,12 @@ class maze_solver
             y = c.y;
             return *this;
         }
+        coord& operator=(std::initializer_list<size_t> list)
+        {
+            x = *list.begin();
+            y = *(list.begin() + 1);
+            return *this;
+        }
         bool operator==(const coord& c)
         {
             return (x == c.x && y == c.y);

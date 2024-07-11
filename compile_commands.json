@@ -1,8 +1,8 @@
 [
 {
-  "directory": "F:/C_C++ coding/NVim Training",
+  "directory": "F:/C_C++ coding/TestBox",
   "command": "C:/mingw64/bin/g++.exe --target=x86_64-w64-mingw32",
-  "file": "F:/C_C++ coding/NVim Training/*.cpp F:/C_C++ coding/NVim Training/*.c", 
+  "file": "F:/C_C++ coding/TestBox/*.cpp F:/C_C++ coding/TestBox/*.c", 
   "output": "CMakeFiles/App.dir/test.cpp.obj"
 }
 ]
