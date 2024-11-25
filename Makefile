@@ -1,8 +1,18 @@
 #compiler/folder settings
-MAIN = default
+MAIN ?= default
+FILE_EXT = $(suffix $(MAIN))
+
+ifeq ($(FILE_EXT),.c)
+	CC = gcc
+	CFLAGS = -g -O2 -Wall -Werror -Wpedantic
+else ifeq ($(FILE_EXT),.cpp)
+	CC = clang++
+	CFLAGS = -g -O2 -Wall -Werror -Wpedantic -std=c++20
+else
+	$(error Unsupported file extension: $(FILE_EXT))
+endif
+
 TARGET = KataApp
-CC = clang++
-CFLAGS = -g -O2 -Wall -Werror -Wpedantic -std=c++20
 DIR = $(CURDIR)
 BUILD = build
 OBJECTS = $(BUILD)/$(basename $(MAIN)).o
