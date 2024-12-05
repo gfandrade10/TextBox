@@ -4,10 +4,10 @@ FILE_EXT = $(suffix $(MAIN))
 
 ifeq ($(FILE_EXT),.c)
 	CC = gcc
-	CFLAGS = -g -O2 -Wall -Werror -Wpedantic
+	CFLAGS = -g -O2 -Wall -Werror -Wpedantic 
 else ifeq ($(FILE_EXT),.cpp)
-	CC = clang++
-	CFLAGS = -g -O2 -Wall -Werror -Wpedantic -std=c++20
+	CC = g++
+	CFLAGS = -g -O2 -Wall -Werror -Wpedantic 
 else
 	$(error Unsupported file extension: $(FILE_EXT))
 endif
