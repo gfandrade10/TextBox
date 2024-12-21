@@ -1,7 +1,7 @@
 [
     {
         "directory": "\"F:/C_C++ coding/TestBox\"",
-        "command": "C:/mingw64/bin/g++.exe C:/mingw64/bin/gcc.exe -std=c++20 --target=x86_64-w64-mingw32",
+        "command": "C:/mingw64/bin/g++.exe C:/mingw64/bin/gcc.exe -std=c++20 -I\"F:/C_C++ Coding/boost_1_87_0/\" --target=x86_64-w64-mingw32",
         "file": "\"F:/C_C++ coding/TestBox/*.cpp\" \"F:/C_C++ coding/TestBox/*.c\"", 
         "output": ""
     }
