@@ -5,7 +5,7 @@ BOOST = "F:/C_C++ Coding/boost_1_87_0/"
 
 ifeq ($(FILE_EXT),.c)
 	CC = gcc
-	CFLAGS = -g -O2 -Wall -Werror -Wpedantic 
+	CFLAGS = -g -O2 -Wall -Wpedantic 
 else ifeq ($(FILE_EXT),.cpp)
 	CC = g++
 	CFLAGS = -g -O2 -Wall -Werror -Wpedantic -std=c++20 -I$(BOOST)

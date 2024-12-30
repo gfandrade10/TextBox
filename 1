@@ -1,0 +1,39 @@
+#include <type_traits>
+#include <string_view>
+#include <string>
+
+#ifdef _WIN32
+
+#include <windows.h>
+#include <minwindef.h>
+
+template <typename T>
+static inline typename std::enable_if<std::is_same<T, std::wstring>::value
+|| std::is_same<T, std::wstring_view>::value
+|| std::is_same<T, wchar_t*>::value>::type
+PrintWString(const T& wstr)
+{
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    if(hConsole == INVALID_HANDLE_VALUE)
+    {
+        return;
+    }
+    DWORD charsWritten;
+    WriteConsoleW(hConsole, wstr.data(), wstr.size(), &charsWritten, nullptr);
+    std::puts("");
+}
+
+#else
+
+#include <iostream>
+
+template <typename T>
+static inline typename std::enable_if<std::is_same<T, std::wstring>::value
+|| std::is_same<T, std::wstring_view>::value
+|| std::is_same<T, wchar_t*>::value>::type
+PrintWString(const T& wstr)
+{
+    std::wcout << wstr << "\n";
+}
+
+#endif
